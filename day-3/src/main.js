@@ -3,77 +3,68 @@ import { gsap } from "gsap";
 
 
 
-// const box = document.querySelector(".box");
 
 
-// gsap.to(".box", {
-//   x:1200,
-//   delay:1,
-//   duration:2,
-//   ease:"expo.inOut",
-//   stagger:{
-//     each:0.1,
-//     from:"edges"
-//   }
-// })
+let count = 0;
+const loaderCount = document.querySelector(".loadingClass > h1");
 
 
 
-
-
-// gsap.from("span",{
-//   yPercent:100,
-//   duration:.9,
-//   opacity:0,
-//   stagger:{
-//     each:0.2,
-//     from:"center"
-//   }
-// })
+let st = setInterval(()=>{
+  count++;
+  loaderCount.textContent = `${count}%`
+  if(count===100){
+     clearInterval(st);
+     landingPageAnimatie();
+  }
+},40)
 
 
 
 
+function landingPageAnimatie(){
+  const tl = gsap.timeline();
 
 
-/** timeline */
+  tl.to(loaderCount,{
+    opacity:0,
+    duration:1.6,
+    ease:"Power3.out"
+  })
 
-// gsap.to(".box1",{
-//   x:700,
-//   delay:1,
-//   duration:1.5,
-//   ease:"expo.inOut"
-// })
+  .to(".loader",{
+    yPercent:-100,
+    duration:1.2,
+    ease:"Power3.out"
+  },"-=0.6")
+  .from(".bgImage img",{
+    scale:1.2,
+    duration:1.3,
+    ease:"expo.out"
+  },"-=0.4")
+
+  .from(".heading h1",{
+    yPercent:100,
+    duration:1.2,
+    ease:"expo.out",
+    opacity:0,
+    
+  },"-=0.5")
+
+  .from(".subheading h2",{
+    yPercent:100,
+    duration:1.2,
+    ease:"expo.out",
+    opacity:0
+  
+  },"-=0.4")
 
 
-// gsap.to(".box2",{
-//   x:700,
-//   duration:1.5,
-//   delay:2.5,
-//   ease:"expo.inOut"
-// })
+}
 
 
-const tl = gsap.timeline();
 
-tl.to(".box1",{
-    x:700,
-  delay:1,
-  duration:1.5,
-  ease:"expo.inOut"
-})
-.to(".box2",{
-    x:700,
-  duration:1.5,
-  ease:"expo.inOut"
-},"sourav")
-.to(".box3",{
-    x:700,
-  duration:1.5,
-  ease:"expo.inOut"
-})
-.to(".box4",{
-    x:700,
-  duration:1.5,
-  ease:"expo.inOut"
-},"sourav+=0.3")
+
+
+
+

@@ -4,15 +4,15 @@ import { gsap } from "gsap";
 
 const box = document.querySelector(".box");
 
-gsap.fromTo(".box",{
-  x:300,
+// gsap.fromTo(".box",{
+//   x:300,
    
-},{
-  duration:4,
-  delay:0.9,
-  x:700,
-  y:200
-})
+// },{
+//   duration:4,
+//   delay:0.9,
+//   x:700,
+//   y:200
+// })
 
 
 
@@ -38,3 +38,15 @@ gsap.fromTo(".box",{
 //   duration:4,
 //   delay:1
 // })
+
+
+
+
+
+
+gsap.to(box,{
+  y:500,
+  duration:.5,
+  delay:.6,
+  borderRadius:"50%"
+})

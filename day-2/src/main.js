@@ -9,11 +9,11 @@ const box1 = document.querySelector(".box1");
 //   x:-300
 // })
 
-gsap.to(box1,{
-  x:500,
-  delay:1.4,
-  duration:2.1,
-   ease: "power2.inOut",
+// gsap.to(box1,{
+//   x:500,
+//   delay:1.4,
+//   duration:2.1,
+//    ease: "power2.inOut",
   // onStart:()=>{
   //   console.log("animation is starting")
   // },
@@ -33,4 +33,20 @@ gsap.to(box1,{
   //   console.log("update the animation")
   // }
 
+// })
+
+
+
+
+
+
+
+
+gsap.to(".box1",{
+  x:600,
+  duration:2,
+  delay:1,
+  onUpdate:()=>{
+    console.log("Frames")
+  }
 })
